@@ -1,0 +1,22 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+        maven {
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
+        }
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            url "https://dl.bintray.com/microsoftazuremobile/SDK"
+        }
+    }
+}
+rootProject.name = "DRD Master"
+include ':app'

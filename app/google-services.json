@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "504935735685",
+    "firebase_url": "https://drd-noti-fire-base.firebaseio.com",
+    "project_id": "drd-noti-fire-base",
+    "storage_bucket": "drd-noti-fire-base.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504935735685:android:a2d0ae89504ba935f5e4ec",
+        "android_client_info": {
+          "package_name": "com.dr.drdtrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfNSkEWsHyHDekncr2WV0ynKP6omhMys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504935735685:android:3c79aff68dc9d99df5e4ec",
+        "android_client_info": {
+          "package_name": "com.drd.drdmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfNSkEWsHyHDekncr2WV0ynKP6omhMys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504935735685:android:ee0bf962759c70e2f5e4ec",
+        "android_client_info": {
+          "package_name": "com.drdistributor.dr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "504935735685-afjqoubd31qb8cfbfmm8elkr4e20ubjc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.drdistributor.dr",
+            "certificate_hash": "78dea817727efb2f21616eaf2c468de9bdc2c2d3"
+          }
+        },
+        {
+          "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFfNSkEWsHyHDekncr2WV0ynKP6omhMys"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "504935735685-q88pm3dtdhi09i9v0jprva517mdm6plj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

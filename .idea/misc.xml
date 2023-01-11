@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable-v24/gradient_bg_hover.xml" value="0.156" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable-v24/list_selector.xml" value="0.156" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable-v24/login_btn_shap.xml" value="0.148" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable-v24/login_or_create_shap1.xml" value="0.148" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable-v24/login_page_shap.xml" value="0.148" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/drawable/medicine_add_qtyadd_shap.xml" value="0.121" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/activity_home_page.xml" value="0.22826086956521738" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/activity_select_chemist.xml" value="0.24909420289855072" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/activity_upload_chemist_img.xml" value="0.24909420289855072" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/menu.xml" value="0.22826086956521738" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/notification.xml" value="0.22826086956521738" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/notification_layout.xml" value="0.22826086956521738" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/select_chemist_item.xml" value="0.24909420289855072" />
+        <entry key="..\:/project/DRDMaster/app/src/main/res/layout/upload_chemist_img_item.xml" value="0.24909420289855072" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

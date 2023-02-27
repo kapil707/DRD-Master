@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             try {
-                Cursor tbl_user_loc = sql.rawQuery("Select * from tbl_user_loc limit 50", null);
+                Cursor tbl_user_loc = sql.rawQuery("Select * from tbl_user_loc limit 500", null);
                 if (tbl_user_loc.getCount() != 0) {
                     if (tbl_user_loc.moveToFirst()) {
                         do {
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                             @SuppressLint("Range")
                             String longitude = tbl_user_loc.getString(tbl_user_loc.getColumnIndex("longitude"));
 
-                            qry+= "{'latitude':'"+latitude+"','longitude':'"+latitude+"'},";
+                            qry+= "{'latitude':'"+latitude+"','longitude':'"+longitude+"'},";
                         }
                         while (tbl_user_loc.moveToNext());
                     }

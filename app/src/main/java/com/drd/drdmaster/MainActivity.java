@@ -179,6 +179,8 @@ public class MainActivity extends AppCompatActivity {
             return null;
         }
 
+
+        // hello just for test
         @Override
         protected void onPostExecute(Void args) {
             Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();

@@ -5,8 +5,11 @@ import static com.google.android.gms.location.LocationServices.getFusedLocationP
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Service;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -15,6 +18,7 @@ import android.os.Looper;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
@@ -49,6 +53,9 @@ import java.util.List;
 import java.util.TimerTask;
 
 public class Mybackground extends Service {
+
+    Database db;
+    SQLiteDatabase sql;
 
     private LocationRequest mLocationRequest;
 
@@ -113,6 +120,9 @@ public class Mybackground extends Service {
         mainurl = ma.main_url;
         page_url1 = mainurl + "update_live_track_user/post";
 
+        db = new Database(this);
+        sql = db.getWritableDatabase();
+
         if(!user_session.equals("")) {
             startLocationUpdates();
         }
@@ -170,10 +180,10 @@ public class Mybackground extends Service {
 
         java.util.Date noteTS = Calendar.getInstance().getTime();
 
-        String time = "hh:mm:ss"; // 12:00
+        String time = "hh:mm"; // 12:00
         //tvTime.setText(DateFormat.format(time, noteTS));
 
-        String date = "dd-MM-yyyy"; // 01 January 2013
+        String date = "yyyy-MM-dd"; // 01 January 2013
         //tvDate.setText(DateFormat.format(date, noteTS));
 
         String gettime = DateFormat.format(time, noteTS) + "";
@@ -184,14 +194,52 @@ public class Mybackground extends Service {
 
         if(!myquery.equals(gettime)) {
             myquery = gettime;
+
+            try
+            {
+                ContentValues cvcv = new ContentValues();
+
+                cvcv.put("user_session",user_session);
+                cvcv.put("user_altercode",user_altercode);
+                cvcv.put("firebase_token",firebase_token);
+                cvcv.put("latitude",latitude);
+                cvcv.put("longitude",longitude);
+                cvcv.put("getdate",getdate);
+                cvcv.put("gettime",gettime);
+
+                sql.insert("tbl_user_loc", "", cvcv);
+            }catch (Exception e) {
+                // TODO: handle exception
+            }
+
             new update_live_track_user().execute();
         }
     }
 
+    String new_latitude = "";
+    String new_longitude = "";
     private class update_live_track_user extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
+            try {
+                Cursor tbl_user_loc = sql.rawQuery("Select * from tbl_user_loc limit 50", null);
+                if (tbl_user_loc.getCount() != 0) {
+                    if (tbl_user_loc.moveToFirst()) {
+                        do {
+                            @SuppressLint("Range")
+                            String latitude = tbl_user_loc.getString(tbl_user_loc.getColumnIndex("latitude"));
+                            @SuppressLint("Range")
+                            String longitude = tbl_user_loc.getString(tbl_user_loc.getColumnIndex("longitude"));
+
+                            new_latitude = "{'latitude':'"+latitude+"'},";
+                            new_longitude = "{'longitude':'"+latitude+"'},";
+                        }
+                        while (tbl_user_loc.moveToNext());
+                    }
+                }
+            }catch (Exception e) {
+            }
         }
         @Override
         protected Void doInBackground(Void... arg0) {
@@ -207,8 +255,8 @@ public class Mybackground extends Service {
                 nameValuePairs.add(new BasicNameValuePair("user_session", user_session));
                 nameValuePairs.add(new BasicNameValuePair("user_altercode", user_altercode));
                 nameValuePairs.add(new BasicNameValuePair("firebase_token", firebase_token));
-                nameValuePairs.add(new BasicNameValuePair("latitude", latitude));
-                nameValuePairs.add(new BasicNameValuePair("longitude", longitude));
+                nameValuePairs.add(new BasicNameValuePair("new_latitude", new_latitude));
+                nameValuePairs.add(new BasicNameValuePair("new_longitude", new_longitude));
                 nameValuePairs.add(new BasicNameValuePair("submit", "98c08565401579448aad7c64033dcb4081906dcb"));
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
@@ -241,7 +289,7 @@ public class Mybackground extends Service {
 
         @Override
         protected void onPostExecute(Void args) {
-            //Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), result, Toast.LENGTH_SHORT).show();
             String toast_msg = "0";
             try {
                 JSONArray jArray = new JSONArray(result);
